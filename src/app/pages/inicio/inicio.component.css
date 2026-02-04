@@ -154,14 +154,6 @@
   width: 4rem;
   z-index: 0;
 }
-.figure3 {
-  position: absolute;
-  bottom: -3rem;
-  right: 1rem;
-  width: 10rem;
-  z-index: 0;
-  display: none;
-}
 
 .figure4 {
   position: absolute;
