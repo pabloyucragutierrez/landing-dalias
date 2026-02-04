@@ -407,6 +407,7 @@
   .panel-mobile {
     width: 72vw;
     max-width: 260px;
+    height: 100dvh;
   }
 
   .panel-head {
