@@ -1,9 +1,6 @@
 <div class="contenedor__slider">
   <div class="slider__img">
     <div class="content__slider">
-      <div class="slider__etiqueta">
-        <span>ESTADÍA TEMPORAL</span>
-      </div>
 
       <h1 class="slider__titulo">
         <span class="titulo__blanco">Residencia las Dalias</span>
@@ -19,8 +16,14 @@
 
       <div class="slider__botones">
         <button class="btn__disponibilidad" (click)="modalVisita.abrir()">
-          Consultar Disponibilidad
+          <i class="far fa-calendar-check"></i>
+          Agendar Visita
         </button>
+        
+        <a href="https://wa.link/iogsuz" target="_blank" class="btn__whatsapp">
+          <i class="fab fa-whatsapp"></i>
+          Solicitar Información
+        </a>
       </div>
     </div>
   </div>
@@ -208,6 +211,8 @@
 
 <!-- Ssección Nuestras Instalaciones -->
 <section class="seccion__instalaciones" id="instalaciones">
+  <img src="/figure4_contacto.png" class="figure1_instalaciones" alt="">
+  <img src="/figure13.png" class="figure2_instalaciones" alt="">
   <div class="instalaciones__container">
     <div class="instalaciones__header">
       <span class="instalaciones__badge">Residencia Las Dalias</span>
@@ -479,9 +484,9 @@
 </div>
 
 <!-- Sección por qué elegirnos -->
-<section class="seccion__elegirnos">
+<section class="seccion__elegirnos" id="propuesta">
   <img src="/figure5.png" class="figure5" alt="" />
-  <img src="/figure5.png" class="figure6" alt="" />
+  <img src="/figure4_contacto.png" class="figure6" alt="" />
   <div class="elegirnos__contenedor">
     <div class="elegirnos__header">
       <p class="elegirnos__subtitulo">NUESTRO COMPROMISO</p>
@@ -623,7 +628,7 @@
 </section>
 
 <!-- Ssección Testimonios -->
-<section class="seccion__testimonios">
+<section class="seccion__testimonios" id="testimonios">
   <div class="testimonios__contenedor">
     <div class="testimonios__header">
       <p class="testimonios__subtitulo">EXPERIENCIAS DALIAS</p>

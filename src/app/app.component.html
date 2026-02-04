@@ -1,3 +1,12 @@
 <app-header></app-header>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
+
+
+<button (click)="scrollToTop()" class="float-button scroll-top-button" [class.show]="showScrollButton">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<a [href]="whatsappLink" target="_blank" class="float-button whatsapp-button">
+  <i class="fab fa-whatsapp"></i>
+</a>
