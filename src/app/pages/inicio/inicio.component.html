@@ -1,0 +1,976 @@
+<div class="contenedor__slider">
+  <div class="slider__img">
+    <div class="content__slider">
+      <div class="slider__etiqueta">
+        <span>ESTADÍA TEMPORAL</span>
+      </div>
+
+      <h1 class="slider__titulo">
+        <span class="titulo__blanco">Residencia las Dalias</span>
+        <br />
+        <span class="titulo__dorado">Casa Club para el Adulto Mayor</span>
+      </h1>
+
+      <p class="slider__descripcion">
+        Ofrecemos planes de estadía pensados para el bienestar, cuidado y
+        tranquilidad de nuestros residentes, adaptándonos a cada necesidad y
+        etapa.
+      </p>
+
+      <div class="slider__botones">
+        <button class="btn__disponibilidad" (click)="modalVisita.abrir()">
+          Consultar Disponibilidad
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Agendar visita -->
+<app-agendar-visita-modal #modalVisita></app-agendar-visita-modal>
+
+<!-- Sección Nosotros -->
+<section class="seccion__nosotros" id="nosotros">
+  <img src="/figure1.png" class="figure1" alt="" />
+  <img src="/figure8.png" class="figure2" alt="" />
+  <img src="/figure3.png" class="figure3" alt="" />
+  <div class="nosotros__contenedor">
+    <div class="nosotros__contenido">
+      <div class="nosotros__imagen">
+        <img
+          [src]="imagenesNosotros[imagenActualNosotros]"
+          alt="Residencia Las Dalias"
+          [@fadeInOut]="carruselKey"
+          [class.center-image]="esPrimeraImagen"
+        />
+      </div>
+
+      <div class="nosotros__texto">
+        <p class="nosotros__subtitulo">SOBRE NOSOTROS</p>
+        <h2 class="nosotros__titulo">
+          Más que una residencia, un hogar lleno de calidez
+        </h2>
+        <p class="nosotros__descripcion">
+          En <strong>Residencia Las Dalias</strong>, nos dedicamos al cuidado
+          integral del adulto mayor con un enfoque humano y profesional.
+        </p>
+
+        <div class="nosotros__caracteristicas">
+          <div class="caracteristica__item">
+            <i class="bx bx-shield-alt-2"></i>
+            <div>
+              <strong>Seguridad 24/7</strong>
+              <span>Monitoreo constante</span>
+            </div>
+          </div>
+          <div class="caracteristica__item">
+            <i class="bx bx-group"></i>
+            <div>
+              <strong>Personal especializado</strong>
+              <span>Equipo multidisciplinario</span>
+            </div>
+          </div>
+          <div class="caracteristica__item">
+            <i class="bx bx-home-heart"></i>
+            <div>
+              <strong>Ambiente familiar</strong>
+              <span>Espacios acogedores</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección Innovación -->
+<section class="seccion__innovacion" id="servicios">
+  <img src="/figure4.png" class="figure4" alt="" />
+  <img src="/figure11.png" class="figure44" alt="" />
+  <img src="/figure12.png" class="figure55" alt="" />
+  <div class="innovacion__contenedor">
+    <div class="innovacion__izquierda">
+      <p class="innovacion__subtitulo">SERVICIOS ASISTENCIALES</p>
+
+      <h2 class="innovacion__titulo">
+        Servicios pensados para el cuidado integral de nuestros residentes
+      </h2>
+
+      <div class="innovacion__acordeon">
+        <div
+          class="acordeon__item"
+          *ngFor="let item of acordeonItems"
+          [class.activo]="item.activo"
+          (click)="toggleAcordeon(item.id)"
+        >
+          <div class="acordeon__header">
+            <span>{{ item.titulo }}</span>
+            <i
+              class="bx"
+              [class.bx-chevron-down]="!item.activo"
+              [class.bx-chevron-up]="item.activo"
+            ></i>
+          </div>
+
+          <div class="acordeon__contenido" *ngIf="item.activo">
+            <p>{{ item.contenido }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="innovacion__derecha">
+      <div class="servicio__card">
+        <div class="servicio__header">
+          <div class="servicio__titulo">
+            <h3>{{ slidesCarrusel[slideActual].titulo }}</h3>
+            <p class="servicio__subtitulo">
+              {{ slidesCarrusel[slideActual].subtitulo }}
+            </p>
+          </div>
+          <i [class]="slidesCarrusel[slideActual].icono"></i>
+        </div>
+
+        <div class="servicio__items">
+          <div
+            class="servicio__item"
+            *ngFor="let item of slidesCarrusel[slideActual].items"
+          >
+            <i class="bx bx-chevron-right"></i>
+            <div>
+              <strong>{{ item.titulo }}:</strong>
+              <span>{{ item.descripcion }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="servicio__carrusel">
+          <div class="carrusel__imagen-container">
+            <img
+              [src]="slidesCarrusel[slideActual].imagen"
+              [alt]="slidesCarrusel[slideActual].titulo"
+              class="carrusel__imagen"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección Servicios Principales -->
+<section class="seccion__servicios-principales" id="planes">
+  <div class="servicios-principales__contenedor">
+    <!-- Header -->
+    <div class="servicios-principales__header">
+      <p class="servicios-principales__subtitulo">Modalidades de cuidado</p>
+      <h1 class="servicios-principales__titulo">Planes de Estadía</h1>
+      <p class="servicios-principales__descripcion">
+        Diferente planes adaptados a cada necesidad familiar, pensados para
+        ofrecer flexibilidad, bienestar y tranquilidad en cada etapa de la vida.
+      </p>
+    </div>
+
+    <div class="servicios-principales__grid">
+      <div
+        *ngFor="let servicio of serviciosPrincipales"
+        class="servicio-principal__card"
+      >
+        <div class="servicio-principal__imagen-container">
+          <img [src]="servicio.imagen" [alt]="servicio.titulo" />
+          <div class="servicio-principal__imagen-overlay"></div>
+        </div>
+
+        <div class="servicio-principal__contenido">
+          <h3>{{ servicio.titulo }}</h3>
+          <p class="servicio-principal__descripcion">
+            {{ servicio.descripcion }}
+          </p>
+
+          <ul class="servicio-principal__detalles">
+            <li *ngFor="let detalle of servicio.detalles">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>{{ detalle }}</span>
+            </li>
+          </ul>
+          <a
+            [href]="servicio.link"
+            target="_blank"
+            class="btn__ver-servicio-principal"
+          >
+            <span>Conocer más</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ssección Nuestras Instalaciones -->
+<section class="seccion__instalaciones" id="instalaciones">
+  <div class="instalaciones__container">
+    <div class="instalaciones__header">
+      <span class="instalaciones__badge">Residencia Las Dalias</span>
+      <h2 class="instalaciones__titulo">
+        Un recorrido por <br />
+        <span class="titulo__dorado"> Nuestras Instalaciones</span>
+      </h2>
+      <p class="instalaciones__descripcion">
+        Diseñamos cada espacio pensando en la comodidad, la accesibilidad y la
+        belleza natural de nuestro entorno.
+      </p>
+    </div>
+
+    <div class="instalaciones__carrusel" #instalacionesCarrusel>
+      <article class="instalacion__slide" [class.first-item]="true">
+        <div class="instalaciones__grid">
+          <div
+            class="instalaciones__imagen instalaciones__imagen--1"
+            (click)="abrirModalImagen(0, 0)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770050931/gallery1_lb5bfr.png"
+              alt="Habitación Principal"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="instalaciones__imagen instalaciones__imagen--2"
+            (click)="abrirModalImagen(0, 1)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770050926/gallery2_qj7jgs.png"
+              alt="Habitación con Sala"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="instalaciones__imagen instalaciones__imagen--3"
+            (click)="abrirModalImagen(0, 2)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770050929/gallery3_cpal4y.jpg"
+              alt="Baño 1"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="instalaciones__imagen instalaciones__imagen--4"
+            (click)="abrirModalImagen(0, 3)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770049419/gallery4_pxur9t.jpg"
+              alt="Baño 2"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </article>
+
+      <article class="instalacion__slide">
+        <div class="instalaciones__grid">
+          <div
+            class="instalaciones__imagen instalaciones__imagen--1"
+            (click)="abrirModalImagen(1, 0)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770049640/gallery5_vztful.png"
+              alt="Comedor"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="instalaciones__imagen instalaciones__imagen--2"
+            (click)="abrirModalImagen(1, 1)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770049640/gallery6_ge32y4.jpg"
+              alt="Sala de Terapias"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="instalaciones__imagen instalaciones__imagen--3"
+            (click)="abrirModalImagen(1, 2)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770049640/gallery7_nnfes5.png"
+              alt="Cocina"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="instalaciones__imagen instalaciones__imagen--4"
+            (click)="abrirModalImagen(1, 3)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770049642/gallery8_dtdr4s.jpg"
+              alt="Recepción"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </article>
+
+      <article class="instalacion__slide">
+        <div class="instalaciones__grid">
+          <div
+            class="instalaciones__imagen instalaciones__imagen--1"
+            (click)="abrirModalImagen(2, 0)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770049781/gallery9_qulhj4.jpg"
+              alt="Piscina"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="instalaciones__imagen instalaciones__imagen--2"
+            (click)="abrirModalImagen(2, 1)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770049781/gallery10_pxtddx.jpg"
+              alt="Área de Lectura"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="instalaciones__imagen instalaciones__imagen--3"
+            (click)="abrirModalImagen(2, 2)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770049781/gallery11_t7bpje.jpg"
+              alt="Habitación Suite"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="instalaciones__imagen instalaciones__imagen--4"
+            (click)="abrirModalImagen(2, 3)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770049781/gallery12_rsw3ip.jpg"
+              alt="Terraza"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </article>
+
+      <article class="instalacion__slide">
+        <div class="instalaciones__grid">
+          <div
+            class="instalaciones__imagen instalaciones__imagen--1"
+            (click)="abrirModalImagen(3, 0)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770049947/gallery13_xide0z.jpg"
+              alt="Gimnasio"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="instalaciones__imagen instalaciones__imagen--2"
+            (click)="abrirModalImagen(3, 1)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770049948/gallery14_yii0or.jpg"
+              alt="Sala de Actividades"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="instalaciones__imagen instalaciones__imagen--3"
+            (click)="abrirModalImagen(3, 2)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770049949/gallery15_tleh0z.jpg"
+              alt="Capilla"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="instalaciones__imagen instalaciones__imagen--4"
+            (click)="abrirModalImagen(3, 3)"
+          >
+            <img
+              src="https://res.cloudinary.com/dd5mnpde5/image/upload/f_auto,q_60,w_1200,c_limit/v1770049948/gallery16_nxmmdr.jpg"
+              alt="Enfermería"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="instalaciones__navegacion">
+      <button
+        class="instalaciones__btn"
+        (click)="anteriorInstalacion()"
+        [disabled]="indiceInstalacion === 0"
+      >
+        <i class="bx bx-chevron-left"></i>
+      </button>
+
+      <div class="instalaciones__indicadores">
+        <span
+          class="indicador__punto"
+          *ngFor="let item of instalacionesItems; let i = index"
+          [class.activo]="i === indiceInstalacion"
+          (click)="irAInstalacion(i)"
+        >
+        </span>
+      </div>
+
+      <button
+        class="instalaciones__btn"
+        (click)="siguienteInstalacion()"
+        [disabled]="indiceInstalacion === instalacionesItems.length - 1"
+      >
+        <i class="bx bx-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Modal de Imagen -->
+<div class="modal__imagen" *ngIf="modalImagenAbierto" (click)="cerrarModal()">
+  <div class="modal__contenido" (click)="$event.stopPropagation()">
+    <img class="modal__logo" src="/dalias.png" alt="Las Dalias" />
+    <button class="modal__cerrar" (click)="cerrarModal()">
+      <i class="bx bx-x"></i>
+    </button>
+
+    <img
+      [src]="imagenActual.src"
+      [alt]="imagenActual.alt"
+      class="modal__imagen-grande"
+    />
+
+    <div class="modal__navegacion">
+      <button
+        class="modal__btn-nav"
+        (click)="imagenAnterior()"
+        [disabled]="indiceImagenActual === 0"
+      >
+        <i class="bx bx-chevron-left"></i>
+      </button>
+      <button
+        class="modal__btn-nav"
+        (click)="imagenSiguiente()"
+        [disabled]="indiceImagenActual === imagenesSlideActual.length - 1"
+      >
+        <i class="bx bx-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Sección por qué elegirnos -->
+<section class="seccion__elegirnos">
+  <img src="/figure5.png" class="figure5" alt="" />
+  <img src="/figure5.png" class="figure6" alt="" />
+  <div class="elegirnos__contenedor">
+    <div class="elegirnos__header">
+      <p class="elegirnos__subtitulo">NUESTRO COMPROMISO</p>
+      <h2 class="elegirnos__titulo">¿Por qué elegirnos?</h2>
+      <p class="elegirnos__descripcion">
+        Nos diferenciamos por nuestra atención profesional con calidez humana,
+        donde cada residente es parte de nuestra familia.
+      </p>
+    </div>
+
+    <div class="elegirnos__grid">
+      <div class="elegirnos__card">
+        <div class="card__icono">
+          <i class="fa-solid fa-user-check"></i>
+        </div>
+        <h3>Atención centrada en la persona</h3>
+        <p
+          [innerHTML]="
+            'Cada residente recibe un plan de cuidado personalizado adaptado a sus necesidades físicas, emocionales y cognitivas, promoviendo autonomía y calidad de vida.'
+          "
+        ></p>
+      </div>
+
+      <div class="elegirnos__card">
+        <div class="card__icono">
+          <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+        <h3>Enfoque geriátrico integral</h3>
+        <p
+          [innerHTML]="
+            'No solo cuidamos, acompañamos profesionalmente. Contamos con seguimiento médico geriátrico, enfermería permanente y coordinación constante con especialistas.'
+          "
+        ></p>
+      </div>
+
+      <div class="elegirnos__card">
+        <div class="card__icono">
+          <i class="fa-solid fa-comments"></i>
+        </div>
+        <h3>Comunicación y transparencia</h3>
+        <p
+          [innerHTML]="
+            'Mantenemos a las familias informadas sobre la evolución, cuidados y bienestar de su familiar, fortaleciendo la confianza y la tranquilidad en todo momento.'
+          "
+        ></p>
+      </div>
+
+      <div class="elegirnos__card">
+        <div class="card__icono">
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+        <h3>Alimentación terapéutica</h3>
+        <p
+          [innerHTML]="
+            'Planes nutricionales supervisados, adaptados a patologías y necesidades específicas, cuidando la salud sin descuidar el gusto y el disfrute de cada comida.'
+          "
+        ></p>
+      </div>
+
+      <div class="elegirnos__card">
+        <div class="card__icono">
+          <i class="fa-solid fa-people-group"></i>
+        </div>
+        <h3>Integración con la familia</h3>
+        <p
+          [innerHTML]="
+            'Facilitamos la participación activa de la familia en la vida diaria del residente, promoviendo visitas amplias, encuentros familiares y momentos compartidos.'
+          "
+        ></p>
+      </div>
+
+      <div class="elegirnos__card">
+        <div class="card__icono">
+          <i class="fa-solid fa-people-group"></i>
+        </div>
+        <h3>Vida activa y estimulación integral diaria</h3>
+        <p
+          [innerHTML]="
+            'Actividades diarias de estimulación cognitiva, física y emocional que mantienen a los adultos mayores activos, motivados y con bienestar integral, en un entorno seguro y acompañado.'
+          "
+        ></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección actividades-->
+<section class="section__actividades" id="actividades">
+  <img src="/figure13.png" class="figure66" alt="" />
+  <div class="actividades__header">
+    <p class="actividades__subtitulo">Experiencia Las Dalias</p>
+    <h2 class="actividades__titulo">Nuestras Actividades</h2>
+  </div>
+
+  <div class="actividades__contenedor" #actividadesCarrusel>
+    <article
+      class="art__atv"
+      *ngFor="let actividad of actividades; let first = first"
+      [class.first-item]="first"
+    >
+      <div class="text__atv">
+        <div>
+          <p class="fecha__atv">{{ actividad.subtitulo }}</p>
+          <h3>{{ actividad.titulo }}</h3>
+          <p class="descripcion__atv">{{ actividad.descripcion }}</p>
+        </div>
+      </div>
+      <img [src]="actividad.imagen" [alt]="actividad.titulo" />
+    </article>
+  </div>
+
+  <div class="arrows__actividades">
+    <div class="arrows__content">
+      <div class="dots__actividades">
+        <span
+          *ngFor="let actividad of actividades; let i = index"
+          [class.active]="slideActualActividades === i"
+          (click)="irAActividad(i)"
+        ></span>
+      </div>
+      <div class="btns__actividades">
+        <button
+          class="btn__atv prev__atv"
+          (click)="anteriorActividad()"
+          [disabled]="slideActualActividades === 0"
+        >
+          <i class="bx bx-chevron-left"></i>
+        </button>
+        <button
+          class="btn__atv next__atv"
+          (click)="siguienteActividad()"
+          [disabled]="slideActualActividades === actividades.length - 1"
+        >
+          <i class="bx bx-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ssección Testimonios -->
+<section class="seccion__testimonios">
+  <div class="testimonios__contenedor">
+    <div class="testimonios__header">
+      <p class="testimonios__subtitulo">EXPERIENCIAS DALIAS</p>
+      <h2 class="testimonios__titulo">Historias que inspiran confianza</h2>
+      <p class="testimonios__descripcion">
+        La satisfacción de nuestra comunidad es nuestro logro
+      </p>
+    </div>
+
+    <div class="testimonios__grid">
+      <div class="testimonio__card">
+        <div class="testimonio__comillas">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+
+        <p class="testimonio__texto">
+          Desde que mi abuelo está en Las Dalias lo vemos más tranquilo y mejor
+          cuidado. Nos dio mucha confianza saber que está acompañado por un
+          equipo atento y cariñoso. Para nosotros fue importante sentir que
+          estaba en buenas manos.
+        </p>
+
+        <div class="testimonio__autor">
+          <div class="autor__icono">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div>
+            <h4>Nieta de residente</h4>
+            <span>Residencia Permanente</span>
+          </div>
+        </div>
+
+        <div class="testimonio__estrellas">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+      </div>
+
+      <div class="testimonio__card">
+        <div class="testimonio__comillas">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+
+        <p class="testimonio__texto">
+          Al inicio tenía miedo de perder mi independencia. Aquí encontré un
+          lugar donde me respetan, puedo participar en actividades y sentirme
+          acompañado sin dejar de ser yo. Me siento cómodo, cuidado y en casa.
+        </p>
+
+        <div class="testimonio__autor">
+          <div class="autor__icono">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div>
+            <h4>Residente de Las Dalias</h4>
+            <span>Residencia Permanente</span>
+          </div>
+        </div>
+
+        <div class="testimonio__estrellas">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+      </div>
+
+      <div class="testimonio__card">
+        <div class="testimonio__comillas">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+
+        <p class="testimonio__texto">
+          Vivimos fuera de Lima y nos preocupaba no poder estar presentes todo
+          el tiempo. En Las Dalias encontramos un lugar donde nos mantienen
+          informados y sabemos que mi mamá está bien atendida. Esa confianza no
+          tiene precio.
+        </p>
+
+        <div class="testimonio__autor">
+          <div class="autor__icono">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div>
+            <h4>Hijo de residente</h4>
+            <span>Residencia Permanente</span>
+          </div>
+        </div>
+
+        <div class="testimonio__estrellas">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección Contacto -->
+<section class="seccion__contacto" id="contactanos">
+  <div class="contacto__contenedor">
+    <img src="/figure_contacto.png" class="figure1_contacto" />
+    <img src="/figure_contacto.png" class="figure2_contacto" />
+    <img src="/figure3_contacto.png" class="figure3_contacto" />
+    <img src="/figure2_contacto.png" class="figure4_contacto" />
+    <img src="/figure4_contacto.png" class="figure5_contacto" />
+    <div class="contacto__izquierda">
+      <p class="contacto__etiqueta">CONTACTO EN LÍNEA</p>
+
+      <h2 class="contacto__titulo">
+        El bienestar que sus <br />
+        <span class="contacto__titulo--dorado">años merecen</span>
+      </h2>
+
+      <p class="contacto__descripcion">
+        Descubra un espacio donde el cuidado profesional se une con el calor de
+        un hogar. Un lugar pensado para que sus seres queridos vivan con la
+        plenitud y el respeto que siempre les han brindado en casa.
+      </p>
+
+      <div class="contacto__info">
+        <div class="info__item">
+          <p class="info__label">ATENCIÓN DIRECTA</p>
+          <p class="info__valor">+51 981 776 156</p>
+        </div>
+
+        <div class="info__item">
+          <p class="info__label">CORREO ELECTRÓNICO</p>
+          <p class="info__valor">residencialasdalias156&#64;gmail.com</p>
+        </div>
+        <div class="info__item">
+          <p class="info__label">ENCUÉNTRANOS EN</p>
+          <p class="info__valor">Las Dalias 156,</p>
+          <p class="info__valor">La Molina 15024, Lima, Perú</p>
+        </div>
+      </div>
+
+      <div class="contacto__imagen">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.3047184778707!2d-76.96143272624305!3d-12.091279488149015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c7a55f8bce07%3A0x61d3f6dc0f38542e!2sResidencia%20Las%20Dalias!5e0!3m2!1sen!2spe!4v1769136924810!5m2!1sen!2spe"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+
+    <div class="contacto__derecha">
+      <div class="formulario__card">
+        <form
+          class="formulario__contacto"
+          (ngSubmit)="enviarFormularioContacto()"
+        >
+          <!-- Nombre -->
+          <div class="form__grupo">
+            <label class="form__label">NOMBRE COMPLETO</label>
+            <input
+              type="text"
+              class="form__input"
+              [(ngModel)]="formularioContacto.nombre"
+              (blur)="validarNombreContacto()"
+              (input)="validarNombreContacto()"
+              name="nombre"
+              required
+            />
+            <span class="error__mensaje" *ngIf="erroresContacto.nombre">
+              {{ erroresContacto.nombre }}
+            </span>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="form__grupo">
+            <label class="form__label">TELÉFONO DE CONTACTO</label>
+            <input
+              type="tel"
+              class="form__input"
+              [(ngModel)]="formularioContacto.numeroMovil"
+              (blur)="validarNumeroMovil()"
+              (input)="validarNumeroMovil()"
+              name="numeroMovil"
+              required
+            />
+            <span class="error__mensaje" *ngIf="erroresContacto.numeroMovil">
+              {{ erroresContacto.numeroMovil }}
+            </span>
+          </div>
+
+          <!-- Correo -->
+          <div class="form__grupo">
+            <label class="form__label">CORREO ELECTRÓNICO</label>
+            <input
+              type="email"
+              class="form__input"
+              [(ngModel)]="formularioContacto.correo"
+              (blur)="validarCorreoContacto()"
+              (input)="validarCorreoContacto()"
+              name="correo"
+              required
+            />
+            <span class="error__mensaje" *ngIf="erroresContacto.correo">
+              {{ erroresContacto.correo }}
+            </span>
+          </div>
+
+          <!-- Tipo de Consulta -->
+          <div class="form__grupo">
+            <label class="form__label">TIPO DE CONSULTA</label>
+            <select
+              class="form__input"
+              [(ngModel)]="formularioContacto.tipoConsulta"
+              (blur)="validarTipoConsulta()"
+              (change)="validarTipoConsulta()"
+              name="tipoConsulta"
+              required
+            >
+              <option value="">Selecciona una opción</option>
+              <option value="informacion-general">Información General</option>
+              <option value="planes-estadia">Planes de Estadía</option>
+              <option value="consulta-geriatrica">Consulta Geriátrica</option>
+              <option value="terapia-rehabilitacion">
+                Terapia y Rehabilitación
+              </option>
+            </select>
+            <span class="error__mensaje" *ngIf="erroresContacto.tipoConsulta">
+              {{ erroresContacto.tipoConsulta }}
+            </span>
+          </div>
+
+          <!-- Mensaje -->
+          <div class="form__grupo">
+            <label class="form__label">MENSAJE O CONSULTA ESPECÍFICA</label>
+            <textarea
+              class="form__textarea"
+              rows="4"
+              [(ngModel)]="formularioContacto.mensaje"
+              name="mensaje"
+            ></textarea>
+          </div>
+
+          <!-- Botón -->
+          <button
+            type="submit"
+            class="btn__enviar"
+            [disabled]="enviandoFormularioContacto"
+          >
+            <span *ngIf="!enviandoFormularioContacto">ENVIAR MENSAJE</span>
+            <div class="spinner" *ngIf="enviandoFormularioContacto"></div>
+            <i
+              class="bx bx-right-arrow-alt"
+              *ngIf="!enviandoFormularioContacto"
+            ></i>
+          </button>
+
+          <p class="form__privacidad">
+            Al proporcionar tus datos, aceptas nuestra política de privacidad
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal de Confirmación Contacto -->
+<div
+  class="modal__overlay"
+  *ngIf="mostrarModalConfirmacionContacto"
+  (click)="cerrarModalConfirmacionContacto()"
+>
+  <div class="modal__confirmacion" (click)="$event.stopPropagation()">
+    <div class="confirmacion__icono">
+      <img src="/logo_header.png" alt="" />
+    </div>
+    <h2>¡Solicitud enviada!</h2>
+    <p>Nos contactaremos contigo pronto.</p>
+    <button
+      class="btn__cerrar-confirmacion"
+      (click)="cerrarModalConfirmacionContacto()"
+    >
+      Entendido
+    </button>
+  </div>
+</div>
+
+<!-- Sección Preguntas Frecuentes -->
+<section class="seccion__faq" id="preguntas-frecuentes">
+  <img src="/figure4.png" class="figure9" />
+  <img src="/figure13.png" class="figure10" />
+  <div class="faq__contenedor">
+    <div class="faq__header">
+      <p class="faq__subtitulo">¿Algo no quedó claro?</p>
+      <h2 class="faq__titulo">Preguntas Frecuentes</h2>
+      <p class="faq__descripcion">
+        Encuentra respuestas a las preguntas más comunes sobre nuestros
+        servicios y atención
+      </p>
+    </div>
+
+    <div class="faq__grid">
+      <div class="faq__columna">
+        <div
+          class="faq__item"
+          *ngFor="let pregunta of preguntasColumna1"
+          [class.activo]="pregunta.activo"
+          (click)="togglePregunta(pregunta.id)"
+        >
+          <div class="faq__pregunta">
+            <h3>{{ pregunta.pregunta }}</h3>
+            <i
+              class="bx"
+              [class.bx-plus]="!pregunta.activo"
+              [class.bx-minus]="pregunta.activo"
+            ></i>
+          </div>
+          <div class="faq__respuesta" *ngIf="pregunta.activo">
+            <p [innerHTML]="pregunta.respuesta"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__columna">
+        <div
+          class="faq__item"
+          *ngFor="let pregunta of preguntasColumna2"
+          [class.activo]="pregunta.activo"
+          (click)="togglePregunta(pregunta.id)"
+        >
+          <div class="faq__pregunta">
+            <h3>{{ pregunta.pregunta }}</h3>
+            <i
+              class="bx"
+              [class.bx-plus]="!pregunta.activo"
+              [class.bx-minus]="pregunta.activo"
+            ></i>
+          </div>
+          <div class="faq__respuesta" *ngIf="pregunta.activo">
+            <p [innerHTML]="pregunta.respuesta"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
