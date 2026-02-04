@@ -89,6 +89,13 @@
   color: #d9b756;
 }
 
+.menu a.active {
+  background-color: #d9b756;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
 .logo a {
   display: flex;
   align-items: center;
@@ -282,6 +289,11 @@
   padding-left: 0.9rem;
 }
 
+.menu-mobile a.active {
+  background-color: #d9b756;
+  color: #fff !important;
+}
+
 .menu-mobile a i {
   display: inline-block;
   width: 1.1rem;
@@ -289,6 +301,10 @@
   color: #1a4d5e !important;
   font-size: 0.85rem;
   flex-shrink: 0;
+}
+
+.menu-mobile a.active i {
+  color: #fff !important;
 }
 
 .panel-acciones {

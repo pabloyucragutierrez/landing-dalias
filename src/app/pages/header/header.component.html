@@ -13,14 +13,14 @@
       </div>
 
       <ul class="menu">
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#planes">Planes</a></li>
-        <li><a href="#instalaciones">Instalaciones</a></li>
-        <li><a href="#actividades">Actividades</a></li>
-        <li><a href="#propuesta">Propuesta</a></li>
-        <li><a href="#testimonios">Testimonios</a></li>
-        <li><a href="#contactanos">Contáctanos</a></li>
+        <li><a href="#nosotros" [class.active]="isActive('nosotros')">Nosotros</a></li>
+        <li><a href="#servicios" [class.active]="isActive('servicios')">Servicios</a></li>
+        <li><a href="#planes" [class.active]="isActive('planes')">Planes</a></li>
+        <li><a href="#instalaciones" [class.active]="isActive('instalaciones')">Instalaciones</a></li>
+        <li><a href="#actividades" [class.active]="isActive('actividades')">Actividades</a></li>
+        <li><a href="#testimonios" [class.active]="isActive('testimonios')">Testimonios</a></li>
+        <li><a href="#propuesta" [class.active]="isActive('propuesta')">Propuesta</a></li>
+        <li><a href="#contactanos" [class.active]="isActive('contactanos')">Contáctanos</a></li>
       </ul>
 
       <div class="header-actions">
@@ -54,32 +54,32 @@
 
     <ul class="menu-mobile">
       <li>
-        <a (click)="scrollToSection('nosotros')">
+        <a (click)="scrollToSection('nosotros')" [class.active]="isActive('nosotros')">
           <i class="fas fa-building"></i> Nosotros
         </a>
       </li>
       <li>
-        <a (click)="scrollToSection('servicios')">
+        <a (click)="scrollToSection('servicios')" [class.active]="isActive('servicios')">
           <i class="fas fa-cog"></i> Servicios
         </a>
       </li>
       <li>
-        <a (click)="scrollToSection('planes')">
+        <a (click)="scrollToSection('planes')" [class.active]="isActive('planes')">
           <i class="fas fa-calendar-alt"></i> Planes
         </a>
       </li>
       <li>
-        <a (click)="scrollToSection('instalaciones')">
+        <a (click)="scrollToSection('instalaciones')" [class.active]="isActive('instalaciones')">
           <i class="fas fa-briefcase"></i> Instalaciones
         </a>
       </li>
       <li>
-        <a (click)="scrollToSection('actividades')">
+        <a (click)="scrollToSection('actividades')" [class.active]="isActive('actividades')">
           <i class="fas fa-dumbbell"></i> Actividades
         </a>
       </li>
       <li>
-        <a (click)="scrollToSection('contactanos')">
+        <a (click)="scrollToSection('contactanos')" [class.active]="isActive('contactanos')">
           <i class="fas fa-envelope"></i> Contáctanos
         </a>
       </li>
@@ -90,7 +90,7 @@
         <i class="bx bx-phone"></i>
         <div>
           <span class="btn-panel-numero">+51 981 776 156</span>
-          <span class="btn-panel-sub">¿Alguna duda?</span>
+          <span class="btn-panel-sub">¿Alguna duda? Contáctanos</span>
         </div>
       </a>
     </div>

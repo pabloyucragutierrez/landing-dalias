@@ -12,10 +12,12 @@ export class HeaderComponent {
 
   isFixed = false;
   menuAbierto = false;
+  activeSection = '';
 
   @HostListener('window:scroll')
   onWindowScroll(): void {
     this.isFixed = window.scrollY > 10;
+    this.updateActiveSection();
   }
 
   toggleMenu(): void {
@@ -39,5 +41,24 @@ export class HeaderComponent {
         behavior: 'smooth'
       });
     }
+  }
+
+  updateActiveSection(): void {
+    const sections = ['nosotros', 'servicios', 'planes', 'instalaciones', 'actividades', 'testimonios', 'propuesta', 'contactanos'];
+    
+    for (const sectionId of sections) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 150 && rect.bottom >= 150) {
+          this.activeSection = sectionId;
+          break;
+        }
+      }
+    }
+  }
+
+  isActive(section: string): boolean {
+    return this.activeSection === section;
   }
 }
