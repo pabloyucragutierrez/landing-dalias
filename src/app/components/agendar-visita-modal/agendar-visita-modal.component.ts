@@ -12,6 +12,7 @@ import {
   HttpClientModule,
   HttpHeaders,
 } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 interface FormularioVisita {
   nombreApellido: string;
@@ -515,9 +516,9 @@ export class AgendarVisitaModalComponent {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     this.http
-      .post('https://backend-dalias.onrender.com/visitas/agendar', payload, {
-        headers,
-      })
+  .post(`${environment.apiUrl}/visitas/agendar`, payload, {
+    headers,
+  })
       .subscribe({
         next: (response: any) => {
           console.log('Respuesta exitosa:', response);
@@ -546,12 +547,12 @@ export class AgendarVisitaModalComponent {
 
   verificarDisponibilidadAPI(fecha: string, hora: string): void {
     this.http
-      .get(
-        `https://backend-dalias.onrender.com/visitas/verificar-disponibilidad`,
-        {
-          params: { fecha, hora },
-        },
-      )
+  .get(
+    `${environment.apiUrl}/visitas/verificar-disponibilidad`,
+    {
+      params: { fecha, hora },
+    },
+  )
       .subscribe({
         next: (response: any) => {
           if (!response.disponible) {

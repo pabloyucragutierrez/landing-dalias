@@ -2717,7 +2717,7 @@ select.form__input {
   }
 
   .contenedor__slider .slider__img {
-    padding: 0 1.5rem;
+    padding: 0 1rem;
     align-items: center;
     justify-content: center;
   }
@@ -2727,7 +2727,7 @@ select.form__input {
   }
 
   .slider__titulo {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .slider__descripcion {

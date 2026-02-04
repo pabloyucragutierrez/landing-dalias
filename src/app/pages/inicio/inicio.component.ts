@@ -16,6 +16,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { FormsModule } from '@angular/forms';
 import { AgendarVisitaModalComponent } from '../../components/agendar-visita-modal/agendar-visita-modal.component';
+import { environment } from '../../../environments/environment';
 
 interface AcordeonItem {
   id: number;
@@ -454,7 +455,7 @@ export class InicioComponent implements OnInit, OnDestroy {
 
   cargarActividades(): void {
     this.http
-      .get<Actividad[]>('https://backend-dalias.onrender.com/actividades')
+  .get<Actividad[]>(`${environment.apiUrl}/actividades`)
       .subscribe({
         next: (response) => {
           this.actividades = response.map((actividad) => ({
@@ -592,9 +593,9 @@ export class InicioComponent implements OnInit, OnDestroy {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     this.http
-      .post('https://backend-dalias.onrender.com/contacto', payload, {
-        headers,
-      })
+  .post(`${environment.apiUrl}/contacto`, payload, {
+    headers,
+  })
       .subscribe({
         next: (response: any) => {
           console.log('Respuesta exitosa:', response);

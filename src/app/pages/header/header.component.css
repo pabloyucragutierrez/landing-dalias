@@ -415,7 +415,7 @@
   }
 
   .panel-logo {
-    width: 5.8rem;
+    width: 7.5rem;
   }
 
   .menu-mobile {
@@ -424,7 +424,7 @@
 
   .menu-mobile a {
     padding: 0.7rem 0.4rem;
-    font-size: 0.82rem;
+    font-size: 1rem;
     gap: 0.7rem;
   }
 
@@ -438,10 +438,10 @@
   }
 
   .btn-panel-numero {
-    font-size: 0.84rem;
+    font-size: 1rem;
   }
 
   .btn-panel-sub {
-    font-size: 0.68rem;
+    font-size: .8rem;
   }
 }
