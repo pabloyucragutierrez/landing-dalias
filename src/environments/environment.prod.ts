@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://backend-dalias.onrender.comsas'
+  apiUrl: 'https://backend-dalias.onrender.com'
 };
