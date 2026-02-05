@@ -74,8 +74,18 @@
         </a>
       </li>
       <li>
+        <a (click)="scrollToSection('propuesta')" [class.active]="isActive('propuesta')">
+          <i class="fas fa-lightbulb"></i> Propuesta
+        </a>
+      </li>
+      <li>
         <a (click)="scrollToSection('actividades')" [class.active]="isActive('actividades')">
           <i class="fas fa-dumbbell"></i> Actividades
+        </a>
+      </li>
+      <li>
+        <a (click)="scrollToSection('testimonios')" [class.active]="isActive('testimonios')">
+          <i class="fas fa-comments"></i> Testimonios
         </a>
       </li>
       <li>

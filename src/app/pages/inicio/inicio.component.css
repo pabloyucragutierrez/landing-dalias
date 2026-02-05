@@ -2369,6 +2369,27 @@ select.form__input {
   .servicio-principal__imagen-container {
     height: 13rem;
   }
+  .servicios-principales__grid
+    .servicio-principal__card:nth-of-type(1)
+    .servicio-principal__imagen-container
+    img {
+    object-fit: cover;
+    transform: scale(1.5) translateX(8%);
+  }
+  .servicios-principales__grid
+    .servicio-principal__card:nth-of-type(2)
+    .servicio-principal__imagen-container
+    img {
+    object-fit: cover;
+    object-position: center 35%;
+  }
+  .servicios-principales__grid
+    .servicio-principal__card:nth-of-type(3)
+    .servicio-principal__imagen-container
+    img {
+    object-fit: cover;
+    object-position: center 28%;
+  }
 
   .servicio-principal__contenido {
     padding: 1.3rem;
@@ -2504,7 +2525,9 @@ select.form__input {
     font-size: 2rem;
     font-weight: 500;
   }
-
+  .actividades__header {
+    margin-bottom: 1rem;
+  }
   .art__atv:first-child {
     margin-left: 2rem;
   }
@@ -2756,12 +2779,14 @@ select.form__input {
   .figure4 {
     width: 5rem;
     right: 8rem;
+    display: none;
   }
   .figure44 {
     width: 2rem;
   }
   .figure55 {
     width: 2rem;
+    top: 0;
   }
   .figure5 {
     width: 5rem;
@@ -2802,8 +2827,9 @@ select.form__input {
     right: 6rem;
   }
   .figure3_contacto {
-    width: 6rem;
-    left: 12rem;
+    width: 8rem;
+    left: auto;
+    right: -3rem;
   }
   .figure4_contacto {
     width: 3.5rem;
@@ -3147,7 +3173,7 @@ select.form__input {
   }
 
   .arrows__actividades {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
   }
 
   .arrows__content {
@@ -3161,8 +3187,15 @@ select.form__input {
   .btns__actividades {
     width: 100%;
     justify-content: space-between;
+    margin-top: -2.7rem;
   }
 
+  .btn__atv.next__atv{
+    margin-right: 3rem;
+  }
+  .btn__atv.prev__atv{
+    margin-left: 3rem;
+  }
   .btn__atv {
     width: 2.8rem;
     height: 2.8rem;

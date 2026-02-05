@@ -854,7 +854,7 @@
 @media (max-width: 768px) {
   .modal__overlay {
     padding: 1rem;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .modal__container {
@@ -1004,7 +1004,7 @@
 @media (max-width: 680px) {
   .modal__overlay {
     padding: 0.5rem;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .modal__container {
