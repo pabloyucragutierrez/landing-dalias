@@ -854,7 +854,7 @@
 @media (max-width: 768px) {
   .modal__overlay {
     padding: 1rem;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .modal__container {
@@ -986,6 +986,7 @@
     width: 90%;
     max-width: 25rem;
     padding: 2rem 1.2rem;
+    margin: auto;
   }
 
   .confirmacion__icono img {
@@ -1004,7 +1005,7 @@
 @media (max-width: 680px) {
   .modal__overlay {
     padding: 0.5rem;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .modal__container {

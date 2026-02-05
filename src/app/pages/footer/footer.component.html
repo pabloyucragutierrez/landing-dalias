@@ -39,20 +39,20 @@
     <div class="footer__columna">
       <h3 class="footer__titulo">General</h3>
       <ul class="footer__lista">
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#planes">Planes</a></li>
-        <li><a href="#instalaciones">Instalaciones</a></li>
+        <li><a (click)="scrollToSection('nosotros')">Nosotros</a></li>
+        <li><a (click)="scrollToSection('servicios')">Servicios</a></li>
+        <li><a (click)="scrollToSection('planes')">Planes</a></li>
+        <li><a (click)="scrollToSection('instalaciones')">Instalaciones</a></li>
       </ul>
     </div>
 
     <div class="footer__columna">
       <h3 class="footer__titulo">Residencia Las Dalias</h3>
       <ul class="footer__lista">
-        <li><a href="#propuesta">Propuesta</a></li>
-        <li><a href="#actividades">Actividades</a></li>
-        <li><a href="#testimonios">Testimonios</a></li>
-        <li><a href="#contactanos">Contáctanos</a></li>
+        <li><a (click)="scrollToSection('propuesta')">Propuesta</a></li>
+        <li><a (click)="scrollToSection('actividades')">Actividades</a></li>
+        <li><a (click)="scrollToSection('testimonios')">Testimonios</a></li>
+        <li><a (click)="scrollToSection('contactanos')">Contáctanos</a></li>
       </ul>
     </div>
 
@@ -72,7 +72,7 @@
           </a>
         </li>
         <li>
-          <a href="#preguntas-frecuentes">
+          <a (click)="scrollToSection('preguntas-frecuentes')">
             Preguntas frecuentes
           </a>
         </li>
