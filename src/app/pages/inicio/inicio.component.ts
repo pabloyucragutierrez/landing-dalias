@@ -125,6 +125,80 @@ export class InicioComponent implements OnInit, OnDestroy {
   mostrarModalConfirmacionContacto = false;
 
   actividades: Actividad[] = [];
+  private actividadesRespaldo: Actividad[] = [
+    {
+      id: 14,
+      titulo: 'Club de Lectura para Adultos Mayores',
+      subtitulo: 'Desarrollo Cognitivo',
+      descripcion:
+        'La lectura compartida estimula la memoria, el lenguaje y la atención, al mismo tiempo que fomenta la conversación y la conexión social. Un espacio que fortalece la mente y genera bienestar emocional en un entorno cálido y participativo.',
+      imagen:
+        'https://res.cloudinary.com/dd5mnpde5/image/upload/v1769446237/actividades/oi0ksz2yia9iylomkmi9.jpg',
+      imagePublicId: 'actividades/oi0ksz2yia9iylomkmi9',
+      createdAt: '2026-01-26T05:09:55.328Z',
+      updatedAt: '2026-01-26T16:50:37.928Z',
+    },
+    {
+      id: 13,
+      titulo: 'Pintura y Dibujo Terapéutico',
+      subtitulo: 'Desarrollo Motriz',
+      descripcion:
+        'A través del arte, los adultos mayores expresan emociones, estimulan la creatividad y fortalecen la motricidad fina. Una actividad que relaja, mejora el ánimo y refuerza la autoestima de forma natural.',
+      imagen:
+        'https://res.cloudinary.com/dd5mnpde5/image/upload/v1769404168/actividades/sjodzyfhh1sql7qkmdhd.png',
+      imagePublicId: 'actividades/sjodzyfhh1sql7qkmdhd',
+      createdAt: '2026-01-26T05:09:28.882Z',
+      updatedAt: '2026-01-26T05:09:28.882Z',
+    },
+    {
+      id: 12,
+      titulo: 'Musicoterapia Geriátrica',
+      subtitulo: 'Desarrollo emocional',
+      descripcion:
+        'La música despierta recuerdos, emociones y sensaciones positivas. Estas sesiones favorecen la comunicación, reducen la ansiedad y generan momentos de conexión emocional, incluso en adultos mayores con deterioro cognitivo.',
+      imagen:
+        'https://res.cloudinary.com/dd5mnpde5/image/upload/v1769404115/actividades/x6i3khlevo3xlp3v4nou.png',
+      imagePublicId: 'actividades/x6i3khlevo3xlp3v4nou',
+      createdAt: '2026-01-26T05:08:35.862Z',
+      updatedAt: '2026-01-26T05:08:35.862Z',
+    },
+    {
+      id: 11,
+      titulo: 'Meditación y Relajación Guiada',
+      subtitulo: 'Desarrollo del bienestar emocional',
+      descripcion:
+        'Momentos de calma diseñados para favorecer la tranquilidad, el descanso y el equilibrio emocional. La relajación guiada ayuda a reducir el estrés y promueve una mejor calidad de vida en el adulto mayor.',
+      imagen:
+        'https://res.cloudinary.com/dd5mnpde5/image/upload/v1769440000/actividades/kt7tx6n2klkui69ap3x9.jpg',
+      imagePublicId: 'actividades/kt7tx6n2klkui69ap3x9',
+      createdAt: '2026-01-26T05:08:04.937Z',
+      updatedAt: '2026-01-26T15:06:40.820Z',
+    },
+    {
+      id: 10,
+      titulo: 'Misas y Celebraciones Religiosas',
+      subtitulo: 'Desarrollo espiritual',
+      descripcion:
+        'Espacios de recogimiento y acompañamiento espiritual que brindan paz y contención emocional. Estas celebraciones fortalecen la fe, la serenidad y el bienestar interior de los adultos mayores.',
+      imagen:
+        'https://res.cloudinary.com/dd5mnpde5/image/upload/v1769404046/actividades/ebdvwrsnl2oqxjdjujca.webp',
+      imagePublicId: 'actividades/ebdvwrsnl2oqxjdjujca',
+      createdAt: '2026-01-26T05:07:27.287Z',
+      updatedAt: '2026-01-26T05:07:27.287Z',
+    },
+    {
+      id: 9,
+      titulo: 'Momentos Compartidos en Familia',
+      subtitulo: 'Desarrollo socioemocional',
+      descripcion:
+        'Celebraciones y encuentros que fortalecen los vínculos afectivos en un entorno seguro y acogedor. Compartir tiempo en familia refuerza la sensación de hogar y el bienestar emocional del adulto mayor.',
+      imagen:
+        'https://res.cloudinary.com/dd5mnpde5/image/upload/v1769404006/actividades/ajeaazgqtm8csovgvams.webp',
+      imagePublicId: 'actividades/ajeaazgqtm8csovgvams',
+      createdAt: '2026-01-26T05:06:47.125Z',
+      updatedAt: '2026-01-26T05:06:47.125Z',
+    },
+  ];
 
   indiceInstalacion = 0;
   instalacionesItems = [0, 1, 2, 3];
@@ -453,22 +527,33 @@ export class InicioComponent implements OnInit, OnDestroy {
     this.cargarActividades();
   }
 
+  // Modifica el método cargarActividades
   cargarActividades(): void {
-    this.http
-  .get<Actividad[]>(`${environment.apiUrl}/actividades`)
-      .subscribe({
-        next: (response) => {
+    // Primero carga los datos de respaldo
+    this.actividades = [...this.actividadesRespaldo];
+
+    // Luego intenta cargar desde el API con timeout
+    const timeout = setTimeout(() => {
+      console.warn('Timeout del API - usando datos de respaldo');
+    }, 5000);
+
+    this.http.get<Actividad[]>(`${environment.apiUrl}/actividades`).subscribe({
+      next: (response) => {
+        clearTimeout(timeout);
+        if (response && response.length > 0) {
           this.actividades = response.map((actividad) => ({
             ...actividad,
             fecha: actividad.subtitulo,
           })) as any;
-          console.log('Actividades cargadas:', this.actividades);
-        },
-        error: (error) => {
-          console.error('Error al cargar actividades:', error);
-          this.actividades = [];
-        },
-      });
+          console.log('Actividades cargadas desde API:', this.actividades);
+        }
+      },
+      error: (error) => {
+        clearTimeout(timeout);
+        console.error('Error al cargar actividades - usando respaldo:', error);
+        // Los datos de respaldo ya están cargados, no hacer nada más
+      },
+    });
   }
 
   ngOnDestroy(): void {
@@ -593,9 +678,9 @@ export class InicioComponent implements OnInit, OnDestroy {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     this.http
-  .post(`${environment.apiUrl}/contacto`, payload, {
-    headers,
-  })
+      .post(`${environment.apiUrl}/contacto`, payload, {
+        headers,
+      })
       .subscribe({
         next: (response: any) => {
           console.log('Respuesta exitosa:', response);
