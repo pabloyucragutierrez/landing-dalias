@@ -6,7 +6,6 @@
 }
 
 .footer__contenedor {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
   display: grid;
@@ -164,7 +163,7 @@
   .footer {
     padding: 2rem 0 0;
   }
-
+  
   .footer__contenedor {
     padding: 0 1rem;
   }

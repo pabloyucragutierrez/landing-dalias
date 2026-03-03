@@ -22,25 +22,55 @@ html {
   html {
     font-size: 15px;
   }
+  .container__banner{
+    max-width: 800px;
+  }
+  .container__section{
+    max-width: 1300px;
+  }
+  .container__footer{
+    max-width: 1200px;
+  }
 }
 @media (min-width: 1400px) {
   html {
     font-size: 16px;
+  }
+  .container__banner{
+    max-width: 900px;
   }
 }
 @media (min-width: 1500px) {
   html {
     font-size: 17px;
   }
+  .container__section{
+    max-width: 1400px;
+  }
 }
 @media (min-width: 1600px) {
   html {
     font-size: 18px;
   }
+  .container__section{
+    max-width: 1600px;
+  }
+  .container__footer{
+    max-width: 1400px;
+  }
 }
 @media (min-width: 1700px) {
   html {
     font-size: 19px;
+  }
+  .container__banner{
+    max-width: 1300px;
+  }
+  .container__section{
+    max-width: 1700px;
+  }
+  .container__footer{
+    max-width: 1600px;
   }
 }
 @media (min-width: 1800px) {

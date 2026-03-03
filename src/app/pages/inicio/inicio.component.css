@@ -33,7 +33,6 @@
 }
 
 .content__slider {
-  max-width: 750px;
   position: relative;
   margin-top: 4rem;
   z-index: 2;
@@ -253,7 +252,6 @@
 }
 
 .innovacion__contenedor {
-  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -501,7 +499,6 @@
 }
 
 .servicios-principales__contenedor {
-  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -708,7 +705,6 @@
 }
 
 .instalaciones__container {
-  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -1038,7 +1034,6 @@
 
 .actividades__contenedor {
   width: 100%;
-  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -1189,7 +1184,6 @@
 }
 
 .testimonios__contenedor {
-  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -1316,7 +1310,6 @@
 }
 
 .nosotros__contenedor {
-  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1477,7 +1470,6 @@
 }
 
 .elegirnos__contenedor {
-  max-width: 1400px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -1629,7 +1621,6 @@
 }
 
 .contacto__contenedor {
-  max-width: 1400px;
   width: 90%;
   display: flex;
   align-items: stretch;
@@ -1650,7 +1641,7 @@
 .figure2_contacto {
   position: absolute;
   bottom: -7rem;
-  right: 15rem;
+  right: 13rem;
   width: 14rem;
   z-index: 20;
 }
@@ -1771,7 +1762,6 @@
 
 .formulario__card {
   width: 100%;
-  max-width: 480px;
 }
 
 .formulario__contacto {
@@ -2020,7 +2010,6 @@ select.form__input {
 }
 
 .faq__contenedor {
-  max-width: 1400px;
   margin: 0 auto;
 }
 

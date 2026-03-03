@@ -227,7 +227,7 @@ export class InicioComponent implements OnInit, OnDestroy {
         'Habitaciones cómodas y seguras',
       ],
       imagen: '/permanente1.jpg',
-      link: 'https://wa.link/db4jzd',
+      link: 'https://wa.link/mpxrkm',
     },
     {
       id: 'temporal',
@@ -240,7 +240,7 @@ export class InicioComponent implements OnInit, OnDestroy {
         'Adaptación progresiva',
       ],
       imagen: '/permanente2.jpg',
-      link: 'https://wa.link/k3fj0r',
+      link: 'https://wa.link/mpxrkm',
     },
     {
       id: 'centro-dia',
@@ -253,7 +253,7 @@ export class InicioComponent implements OnInit, OnDestroy {
         'Alimentación supervisada',
       ],
       imagen: '/permanente3.jpg',
-      link: 'https://wa.link/91v3xr',
+      link: 'https://wa.link/mpxrkm',
     },
     {
       id: 'post-operatoria',
@@ -266,7 +266,7 @@ export class InicioComponent implements OnInit, OnDestroy {
         'Administración segura de tratamientos',
       ],
       imagen: '/permanente4.jpg',
-      link: 'https://wa.link/smm7ny',
+      link: 'https://wa.link/mpxrkm',
     },
   ];
 

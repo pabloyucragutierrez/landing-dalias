@@ -15,24 +15,9 @@ import { filter } from 'rxjs/operators';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'dalias';
   showScrollButton = false;
-  whatsappLink = 'https://wa.link/58djkj'; 
+  whatsappLink = 'https://api.whatsapp.com/send?phone=51981776156&text=Hola%20%F0%9F%91%8B%F0%9F%8F%BD%2C%20me%20gustar%C3%ADa%20recibir%20mayor%20informaci%C3%B3n%20sobre%20%F0%9F%8F%A1%20Residencia%20Las%20Dalias%20y%20poder%20agendar%20una%20visita%20%F0%9F%98%8A';
 
   private routerSubscription?: Subscription;
-
-  private whatsappLinks: { [key: string]: string } = {
-    '/': 'https://wa.link/58djkj',
-    '/inicio': 'https://wa.link/58djkj',
-    '/servicios': 'https://wa.link/thafd4',
-    '/servicios/planes-de-estadia': 'https://wa.link/3odmgg',
-    '/servicios/planes-de-estadia/residencia-permanente':
-      'https://wa.link/db4jzd',
-    '/servicios/planes-de-estadia/residencia-temporal':
-      'https://wa.link/k3fj0r',
-    '/servicios/planes-de-estadia/centro-de-dia':
-      'https://wa.link/91v3xr',
-    '/servicios/planes-de-estadia/post-operatoria':
-      'https://wa.link/9g9f4u',
-  };
 
   constructor(private router: Router) {}
 
@@ -54,8 +39,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private updateWhatsappLink(url: string) {
     const cleanUrl = url.split('?')[0].split('#')[0];
-
-    this.whatsappLink = this.whatsappLinks[cleanUrl] || this.whatsappLinks['/'];
   }
 
   @HostListener('window:scroll', [])
