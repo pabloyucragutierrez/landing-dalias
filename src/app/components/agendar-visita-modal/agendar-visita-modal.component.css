@@ -849,8 +849,9 @@
   font-size: 1.4rem;
 }
 
-
-/* Media queries */
+/* ========================================
+   MEDIA QUERY 768px
+   ======================================== */
 @media (max-width: 768px) {
   .modal__overlay {
     padding: 1rem;
@@ -859,13 +860,15 @@
 
   .modal__container {
     width: 95%;
-    max-height: none;
-    margin: 1rem 0;
+    max-height: 95vh;
+    margin: 1rem auto;
+    overflow-y: auto;
   }
 
   .modal__contenido {
     flex-direction: column-reverse;
     max-height: none;
+    overflow: visible;
   }
 
   .modal__izquierda {
@@ -892,7 +895,6 @@
     font-size: 2.2rem;
   }
 
-  /* Formulario */
   .form__grupo__modal--inline {
     grid-template-columns: 1fr;
     gap: 1.2rem;
@@ -906,7 +908,6 @@
     min-width: 100%;
   }
 
-  /* Calendario y horas */
   .fecha-hora__contenedor {
     flex-direction: column;
     gap: 1.2rem;
@@ -930,7 +931,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Modal Evaluación */
   .modal__evaluacion-container {
     width: 95%;
     max-height: none;
@@ -981,7 +981,6 @@
     font-size: 0.9rem;
   }
 
-  /* Modal Confirmación */
   .modal__confirmacion {
     width: 90%;
     max-width: 25rem;
@@ -1002,6 +1001,9 @@
   }
 }
 
+/* ========================================
+   MEDIA QUERY 680px
+   ======================================== */
 @media (max-width: 680px) {
   .modal__overlay {
     padding: 0.5rem;
@@ -1010,12 +1012,17 @@
 
   .modal__container {
     width: 98%;
-    max-width: 600px;
-    max-height: none;
+    max-height: 95vh;
+    margin: 0.5rem auto;
+    overflow-y: auto;
     border-radius: 1.2rem;
-    margin: 0.5rem 0;
   }
 
+  .modal__contenido {
+    flex-direction: column-reverse;
+    max-height: none;
+    overflow: visible;
+  }
   .modal__cerrar {
     width: 2.2rem;
     height: 2.2rem;
@@ -1027,12 +1034,6 @@
     font-size: 1.3rem;
   }
 
-  .modal__contenido {
-    flex-direction: column-reverse;
-    max-height: none;
-    overflow: visible;
-  }
-
   .modal__izquierda {
     padding: 1.2rem;
     max-height: none;
@@ -1041,15 +1042,13 @@
 
   .modal__derecha {
     height: 20rem;
-  }
-
-  .modal__derecha img{
-    transform: scale(1.4);
-  }
-  .modal__derecha {
     border-radius: 0;
     border-top-left-radius: 1.2rem;
     border-top-right-radius: 1.2rem;
+  }
+
+  .modal__derecha img {
+    transform: scale(1.4);
   }
 
   .modal__header h2 {
@@ -1068,7 +1067,6 @@
     width: 1.2rem;
   }
 
-  /* Formulario */
   .modal__formulario {
     gap: 1rem;
   }
@@ -1092,7 +1090,6 @@
     font-size: 1.1rem;
   }
 
-  /* Nivel dependencia */
   .radio__option {
     padding: 0.7rem;
   }
@@ -1101,7 +1098,6 @@
     font-size: 0.8rem;
   }
 
-  /* Checkbox evaluación */
   .checkbox__evaluacion {
     padding: 0.8rem;
   }
@@ -1115,7 +1111,6 @@
     height: 1.1rem;
   }
 
-  /* Calendario */
   .calendario__container {
     padding: 1rem 0.8rem;
   }
@@ -1152,7 +1147,6 @@
     padding: 0.3rem;
   }
 
-  /* Horas */
   .horas__titulo {
     font-size: 0.9rem;
   }
@@ -1167,7 +1161,6 @@
     font-size: 0.8rem;
   }
 
-  /* Botón enviar */
   .btn__enviar-visita {
     padding: 0.9rem 1.5rem;
     font-size: 0.95rem;
@@ -1177,9 +1170,6 @@
     font-size: 1.1rem;
   }
 
-  
-
-  /* Modal Evaluación */
   .modal__evaluacion-container {
     width: 98%;
     max-width: 700px;
@@ -1258,7 +1248,6 @@
     padding: 0.4rem 0.7rem;
   }
 
-  /* Modal Confirmación */
   .modal__confirmacion {
     width: 95%;
     max-width: 24rem;
