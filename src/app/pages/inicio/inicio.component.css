@@ -769,7 +769,7 @@
 .instalaciones__grid {
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr;
-  grid-template-rows: 280px 250px;
+  grid-template-rows: 17.5rem 15.7rem;
   gap: 0.6rem;
 }
 
